@@ -26,6 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user-profile', 'HomeController@user_profile')->name('UserProfile');
 Route::post('/changeAvatar', 'UserController@changeAvatar')->name('changeavatar');
 Route::post('/changePassword', 'UserController@changePassword')->name('changepassword');
+Route::post('/changeUserinfo', 'UserController@changeUserinfo')->name('changeuserinfo');
+Route::post('/changePhoneNumber', 'UserController@changePhoneNumber')->name('changephonenumber');
+Route::post('/changeEmailAddress', 'UserController@changeEmailAddress')->name('changeemailaddress');
 
 Route::get('/create-new-application', 'HomeController@create_new_application')->name('createnewapplication');
 Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');

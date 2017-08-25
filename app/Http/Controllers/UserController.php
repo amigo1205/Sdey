@@ -21,6 +21,18 @@ class UserController extends Controller
         // parent::__construct();
     }
 
+    public function changeUserinfo(Request $request)
+    {
+        if(Auth::User()->id){
+          $obj_user = User::find(Auth::User()->id);
+          $obj_user->first_name = $request->input('fname');
+          $obj_user->last_name = $request->input('lname');
+          $obj_user->save();
+          return back()->with('status', 'User Name changed successfully');
+        }
+        return back()->with('error', 'Went somthing wrong');
+    }
+
     public function changePassword(Request $request)
     {
         if (Auth::Check()) {
@@ -60,6 +72,17 @@ class UserController extends Controller
         return $validator->validate();
     }
 
+    public function changePhoneNumber(Request $request)
+    {
+        if(Auth::User()->id){
+          $obj_user = User::find(Auth::User()->id);
+          $obj_user->phone_number = $request->input('phone_number');
+          $obj_user->save();
+          return back()->with('status', 'User Phone Number changed successfully');
+        }
+        return back()->with('error', 'Went somthing wrong');
+    }
+
     public function changeEmailAddress(Request $request)
     {
         if (Auth::User()->id) {
@@ -76,9 +99,11 @@ class UserController extends Controller
             $obj_user->verified = 0;
             $obj_user->save();
             if($obj_user->email == $request->input('email')){
-                UserVerification::generate($obj_user);
-                UserVerification::send($obj_user, 'SoccerStream account verification');
-                return back()->with('done', 'Your email has been changed successfully please first verify your email address.');
+              UserVerification::generate($obj_user);
+
+              UserVerification::send($obj_user, 'please verify your email');
+
+              return back()->with('status','Confirmation email has been send. please check your email.');
             }else
                 return back()->with('error', 'Something went wrong in email updating or email verification sending.');
         } else {
@@ -117,7 +142,7 @@ class UserController extends Controller
             // $imageName = time().'.'.$request->image->getClientOriginalExtension();
             // $request->image->move(public_path('images/avatar'), $imageName);
 
-            return back()->with('done', '');
+            return back()->with('status', 'Your avatar changed successfully');
         } else {
             return back()->with('error', 'You have no access for this action');
         }

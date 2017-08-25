@@ -118,7 +118,7 @@ class RegisterController extends Controller
         } catch (UserNotFoundException $e) {
             return redirect($this->redirectIfVerificationFails());
         } catch (UserIsVerifiedException $e) {
-            return redirect($this->redirectIfVerified());
+            return redirect(url('create-new-application'));
         } catch (TokenMismatchException $e) {
             return redirect($this->redirectIfVerificationFails());
         }
@@ -129,4 +129,28 @@ class RegisterController extends Controller
 
         return redirect(url('login-page'))->with('status','congratulations Your email Verified.');
     }
+    // public function redirectIfVerified()
+    // {
+    //     return property_exists($this, 'redirectIfVerified') ? $this->$redirectTo : '/';
+    // }
+    //
+    // /**
+    //  * Get the redirect path for a successful verification token verification.
+    //  *
+    //  * @return string
+    //  */
+    // public function redirectAfterVerification()
+    // {
+    //     return property_exists($this, 'redirectAfterVerification') ? $this->redirectAfterVerification : '/';
+    // }
+    //
+    // /**
+    //  * Get the redirect path for a failing token verification.
+    //  *
+    //  * @return string
+    //  */
+    // public function redirectIfVerificationFails()
+    // {
+    //     return property_exists($this, 'redirectIfVerificationFails') ? $this->redirectIfVerificationFails : route('email-verification.error');
+    // }
 }

@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/create-new-application';
 
     /**
      * Create a new controller instance.
@@ -75,6 +75,12 @@ class LoginController extends Controller
       }
       return redirect()->back()->with('error', 'These credentials do not match our records.');
     }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
     public function useremail()
     {
         return 'email';

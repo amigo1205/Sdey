@@ -90,20 +90,35 @@
                       <div class="col-md-9">
                           <div class="tab-content">
                               <div id="tab_1-1" class="tab-pane active">
-                                  <form role="form" action="#">
+                                  <form role="form" action="{{url('changeUserinfo')}}" style="margin-bottom:20px;"  method="post" enctype="multipart/form-data">
                                       {{ csrf_field() }}
                                       <div class="form-group">
                                           <label class="control-label">First Name</label>
-                                          <input type="text" placeholder="John" class="form-control" value="{{Auth::user()->first_name}}" />
+                                          <input type="text" placeholder="John" class="form-control" name="fname" value="{{Auth::user()->first_name}}" />
                                       </div>
                                       <div class="form-group">
                                           <label class="control-label">Last Name</label>
-                                          <input type="text" placeholder="Doe" class="form-control" value="{{Auth::user()->last_name}}" /> </div>
+                                          <input type="text" placeholder="Doe" class="form-control" name="lname" value="{{Auth::user()->last_name}}" /> </div>
+                                      <div class="margiv-top-10">
+                                          <button type="submit" href="javascript:;" class="btn green"> Save Changes </a>
+                                      </div>
+                                  </form>
+                                  <form role="form" action="{{url('changePhoneNumber')}}" style="margin-bottom:20px;"  method="post" enctype="multipart/form-data">
+                                      {{ csrf_field() }}
                                       <div class="form-group">
                                           <label class="control-label">Mobile Number</label>
-                                          <input type="text" placeholder="+1 646 580 DEMO (6284)" value="{{Auth::user()->phone_number}}" class="form-control" /> </div>
+                                          <input type="text" placeholder="+1 646 580 DEMO (6284)" name="phone_number" value="{{Auth::user()->phone_number}}" class="form-control" /> </div>
                                       <div class="margiv-top-10">
-                                          <a href="javascript:;" class="btn green"> Save Changes </a>
+                                          <button type="submit" href="javascript:;" class="btn green"> Save Changes </button>
+                                      </div>
+                                  </form>
+                                  <form role="form" action="{{ url('changeEmailAddress')}}"  method="post" enctype="multipart/form-data">
+                                      {{ csrf_field() }}
+                                      <div class="form-group">
+                                          <label class="control-label">Your Email</label>
+                                          <input type="text" placeholder="example@mail.com" name="email" value="{{Auth::user()->email}}" class="form-control" /> </div>
+                                      <div class="margiv-top-10">
+                                          <button type="submit" href="javascript:;" class="btn green"> Save Changes </button>
                                       </div>
                                   </form>
                               </div>
