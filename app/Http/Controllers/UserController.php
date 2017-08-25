@@ -169,4 +169,10 @@ class UserController extends Controller
             return false;
         }
     }
+    public function delete_user(Request $request)
+    {
+      $user_id = $request->user_id;
+      DB::table('users')->where('id', '=', $user_id)->delete();
+      Cache::flush();
+    }
 }

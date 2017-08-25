@@ -58,9 +58,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'fname' => 'required',
             'lname' => 'required',
-            'company_name' => 'string',
+            'company_name' => 'required',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required',
+            'phonenumber' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -90,10 +90,8 @@ class RegisterController extends Controller
    */
     public function register(Request $request)
     {
-      $validator = $this->validator($request->all())->validate();
-      if(!$validator){
+      $this->validator($request->all())->validate();
         $data = $this->create($request->all());
-        $data['token'] = str_random(25);
 
         $user = User::find($data['id']);
 
@@ -103,8 +101,6 @@ class RegisterController extends Controller
 
         return $this->registered($request, $user)
                         ? : redirect(url('login-page'))->with('status','Confirmation email has been send. please check your email.');
-      }
-      return redirect(url('login-page'))->with('status','error');
     }
 
     public function getVerification(Request $request, $token)

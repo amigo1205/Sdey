@@ -39,12 +39,12 @@ Register
       <div class="row">
           <div class="col-sm-12">
               <div class="rem-password" style="margin-bottom:20px;">
-                  <label style="cursor:pointer;"><input type="checkbox" name="confirm_terms" class="rem-checkbox" /> I agree to the <a>Terms of Service</a> and <a> Privacy Policy </a></label>
+                  <label style="cursor:pointer;"><input type="checkbox" name="confirm_terms" class="rem-checkbox" /> I agree to the </label> <a class="site-terms-service-btn">Terms of Service</a> and <a class="site-privacy-policy-btn"> Privacy Policy </a>
               </div>
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-8 text-left">
+          <div class="col-sm-8 text-left" style="margin-bottom:20px;">
               <a class="btn grey" href="{{url('login-page')}}">Back to Login Page</a>
           </div>
           <div class="col-sm-4 text-right">

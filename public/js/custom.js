@@ -50,4 +50,36 @@ $(function () {
       }
     });
   });
+
+  $('.site-about-us-form-div-close-btn').on('click', function(){
+    console.log('ddd');
+    $('.login-register-formoverlay').css({visibility:'hidden',opacity:'0'})
+  })
 });
+
+function delete_user(id){
+  console.log(id);
+  swal({
+    title: "Are you sure?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#DD6B55",
+    confirmButtonText: "Yes, delete user!",
+    cancelButtonText: "No, cancel plx!",
+    closeOnConfirm: false,
+    closeOnCancel: false
+  }, function (isConfirm) {
+      if (isConfirm) {
+        axios.post("/delete-user", {user_id:id})
+        .then(function (response) {
+            $("#userlist_"+ id).remove();
+            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      } else {
+          swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+  });
+};

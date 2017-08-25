@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -38,6 +40,7 @@ class HomeController extends Controller
 
     public function user_management()
     {
-        return view('userManagement');
+        $users = DB::table('users')->get();
+        return view('userManagement',['users' => $users]);
     }
 }

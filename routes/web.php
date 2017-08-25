@@ -35,6 +35,7 @@ Route::post('/privacyPolicyEdit', 'SiteHelpController@update_privacy');
 Route::post('/aboutUsEdit', 'SiteHelpController@update_aboutus');
 Route::get('/getSiteHelp', 'SiteHelpController@getsitehelpdata');
 Route::get('/user-management', 'HomeController@user_management');
+Route::post('/delete-user', 'UserController@delete_user');
 
 Route::get('/create-new-application', 'HomeController@create_new_application')->name('createnewapplication');
 Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');

@@ -42,6 +42,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="{{ cdn('assets/pages/css/login-5.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ cdn('css/custom.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
@@ -49,21 +50,36 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END HEAD -->
 
     <body class=" login">
+        <div class="login-register-formoverlay">
+          <div style="display:table-cell;vertical-align:middle">
+            <div class="site-about-us-form-div">
+              <h3 class="about-us-form-header" style="font-size:30px;font-weight:bold">About Us</h3>
+              <br />
+              <div class="site-about-us-form-container-div">
+                <div class="site-about-us-form-container"></div>
+              </div>
+              <a class="site-about-us-form-div-close-btn"><i class="fa fa-close"></i></a>
+            </div>
+          </div>
+        </div>
+
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
             <div class="row bs-reset">
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg" style="background-image:url({{ cdn('assets/pages/img/login/bg1.jpg') }})">
-                        <img class="login-logo" src="{{ cdn('assets/pages/img/login/logo.png') }}" /> </div>
+                        <img class="login-logo" src="{{ cdn('assets/pages/img/login/logo.png') }}" />
+                    </div>
+                    <a class="btn btn-default site-about-us-btn">About Us</a>
                 </div>
                 <div class="col-md-6 login-container bs-reset">
                     <div class="login-content">
                       @yield('content')
                     </div>
-                    <div class="login-footer">
+                    <div class="login-footer" style="padding:20px 20px;">
                         <div class="row bs-reset">
-                            <div class="col-xs-5 bs-reset">
-                                <ul class="login-social">
+                            <div class="col-sm-5 bs-reset" style="text-align:center;">
+                                <ul class="login-social" style="display:inline-block;padding:0;">
                                     <li>
                                         <a href="javascript:;">
                                             <i class="icon-social-facebook"></i>
@@ -81,8 +97,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-xs-7 bs-reset">
-                                <div class="login-copyright text-right">
+                            <div class="col-sm-7 bs-reset" style="text-align:center;">
+                                <div class="login-copyright text-right" style="display:inline-block;padding:0;">
                                     <p>Copyright &copy; Keenthemes 2015</p>
                                 </div>
                             </div>
@@ -113,9 +129,36 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="{{ cdn('assets/pages/scripts/login-5.js') }}" type="text/javascript"></script>
+        <script src="{{ cdn('js/custom.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+          var getservicedataUrl = "{{ url('getSiteHelp') }}";
+          $('.site-about-us-btn').on('click', function(){
+            $.get(getservicedataUrl, function (data) {
+                 $('div.site-about-us-form-container').html(data[0]['about_us']);
+            });
+            $('.about-us-form-header').html('About Us');
+            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
+          });
+
+          $('.site-terms-service-btn').on('click', function(){
+            $.get(getservicedataUrl, function (data) {
+                 $('div.site-about-us-form-container').html(data[0]['terms_service']);
+            });
+            $('.about-us-form-header').html('Terms of Service');
+            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
+          });
+
+          $('.site-privacy-policy-btn').on('click', function(){
+            $.get(getservicedataUrl, function (data) {
+                 $('div.site-about-us-form-container').html(data[0]['privacy_policy']);
+            });
+            $('.about-us-form-header').html('Privacy Policy');
+            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
+          });
+        </script>
     </body>
 
 </html>
