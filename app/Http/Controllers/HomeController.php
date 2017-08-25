@@ -35,4 +35,10 @@ class HomeController extends Controller
     {
       return view('UserProfile');
     }
+
+    public function update_terms(Request $request)
+    {
+        // DB::table('document')->where('id', '=', $document_id)->update($data);
+        return succes;
+    }
 }

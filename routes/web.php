@@ -30,6 +30,11 @@ Route::post('/changeUserinfo', 'UserController@changeUserinfo')->name('changeuse
 Route::post('/changePhoneNumber', 'UserController@changePhoneNumber')->name('changephonenumber');
 Route::post('/changeEmailAddress', 'UserController@changeEmailAddress')->name('changeemailaddress');
 
+Route::post('/termsServiceEdit', 'SiteHelpController@update_terms');
+Route::post('/privacyPolicyEdit', 'SiteHelpController@update_privacy');
+Route::post('/aboutUsEdit', 'SiteHelpController@update_aboutus');
+Route::get('/getSiteHelp', 'SiteHelpController@getsitehelpdata');
+
 Route::get('/create-new-application', 'HomeController@create_new_application')->name('createnewapplication');
 Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
 Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');

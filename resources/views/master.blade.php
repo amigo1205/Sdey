@@ -1182,6 +1182,7 @@
   <script src="{{cdn('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
   <script src="{{cdn('assets/global/plugins/uniform/jquery.uniform.min.js')}}" type="text/javascript"></script>
   <script src="{{cdn('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <!-- END CORE PLUGINS -->
   <!-- BEGIN PAGE LEVEL PLUGINS -->
   @yield('pagelevel_script')
@@ -1193,5 +1194,6 @@
   <script src="{{cdn('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
   <script src="{{cdn('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
   <script src="{{cdn('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
+  <script src="{{cdn('js/custom.js')}}" type="text/javascript"></script>
   <!-- END THEME LAYOUT SCRIPTS -->
 </body>
