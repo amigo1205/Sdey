@@ -435,56 +435,66 @@
                       </form>
                       <!-- END RESPONSIVE QUICK SEARCH FORM -->
                   </li>
-                  <li class="nav-item start ">
+                  <li class="nav-item start @if(Route::current()->uri=='g')open active @endif">
                       <a href="javascript:;" class="nav-link nav-toggle">
                           <i class="icon-home"></i>
-                          <span class="title">Dashboard</span>
-                          <span class="arrow"></span>
+                          <span class="title">Share Activity Log</span>
+                          @if(Route::current()->uri=='v')
+                          <span class="selected"></span>
+                          @endif
                       </a>
-                      <ul class="sub-menu">
-                          <li class="nav-item start ">
-                              <a href="index.html" class="nav-link ">
-                                  <i class="icon-bar-chart"></i>
-                                  <span class="title">Dashboard 1</span>
-                              </a>
-                          </li>
-                          <li class="nav-item start ">
-                              <a href="dashboard_2.html" class="nav-link ">
-                                  <i class="icon-bulb"></i>
-                                  <span class="title">Dashboard 2</span>
-                                  <span class="badge badge-success">1</span>
-                              </a>
-                          </li>
-                          <li class="nav-item start ">
-                              <a href="dashboard_3.html" class="nav-link ">
-                                  <i class="icon-graph"></i>
-                                  <span class="title">Dashboard 3</span>
-                                  <span class="badge badge-danger">5</span>
-                              </a>
-                          </li>
-                      </ul>
+                  </li>
+                  <li class="nav-item @if(Route::current()->uri=='user-profile')open active @endif">
+                      <a href="{{url('user-profile')}}" class="nav-link nav-toggle">
+                          <i class="icon-user"></i>
+                          <span class="title">Profile</span>
+                          @if(Route::current()->uri=='user-profile')
+                          <span class="selected"></span>
+                          @endif
+                      </a>
+                  </li>
+                  <li class="nav-item @if(Route::current()->uri=='user-management')open active @endif">
+                      <a href="{{url('user-management')}}" class="nav-link nav-toggle">
+                          <i class="icon-user"></i>
+                          <span class="title">User Management</span>
+                          @if(Route::current()->uri=='user-management')
+                          <span class="selected"></span>
+                          @endif
+                      </a>
                   </li>
                   <li class="heading">
                       <h3 class="uppercase">Section 2</h3>
                   </li>
-                  <li class="nav-item  ">
-                      <a href="ui_colors.html" class="nav-link ">
+                  <li class="nav-item @if(Route::current()->uri=='d')open active @endif">
+                      <a class="nav-link ">
                           <span class="title">App Creation Guide</span>
+                          @if(Route::current()->uri=='s')
+                          <span class="selected"></span>
+                          @endif
                       </a>
                   </li>
-                  <li class="nav-item  ">
-                      <a href="ui_general.html" class="nav-link ">
+                  <li class="nav-item @if(Route::current()->uri=='s')open active @endif">
+                      <a class="nav-link ">
                           <span class="title">How it works</span>
+                          @if(Route::current()->uri=='x')
+                          <span class="selected"></span>
+                          @endif
                       </a>
                   </li>
-                  <li class="nav-item  ">
-                      <a href="ui_buttons.html" class="nav-link ">
+                  <li class="nav-item @if(Route::current()->uri=='x')open active @endif">
+                      <a class="nav-link ">
                           <span class="title">View Documentation</span>
+                          @if(Route::current()->uri=='z')
+                          <span class="selected"></span>
+                          @endif
                       </a>
                   </li>
-                  <li class="nav-item  active">
-                      <a href="ui_confirmations.html" class="nav-link ">
+                  <li class="nav-item @if(Route::current()->uri=='create-new-application')open active @endif">
+                      <a href="{{url('create-new-application')}}" class="nav-link ">
                           <span class="title">Create New Application</span>
+                          @if(Route::current()->uri=='create-new-application')
+                          <span class="selected"></span>
+                          @endif
                       </a>
                   </li>
               </ul>
@@ -1190,6 +1200,9 @@
   <!-- BEGIN THEME GLOBAL SCRIPTS -->
   <script src="{{cdn('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
   <!-- END THEME GLOBAL SCRIPTS -->
+  <!-- BEGIN PAGE LEVEL SCRIPTS -->
+  @yield('pagelevel_script_script')
+  <!-- END PAGE LEVEL SCRIPTS -->
   <!-- BEGIN THEME LAYOUT SCRIPTS -->
   <script src="{{cdn('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
   <script src="{{cdn('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>

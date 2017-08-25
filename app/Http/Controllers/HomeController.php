@@ -36,9 +36,8 @@ class HomeController extends Controller
       return view('UserProfile');
     }
 
-    public function update_terms(Request $request)
+    public function user_management()
     {
-        // DB::table('document')->where('id', '=', $document_id)->update($data);
-        return succes;
+        return view('userManagement');
     }
 }
