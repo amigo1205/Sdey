@@ -47,4 +47,20 @@ class SiteHelpController extends Controller
         $servicedata = DB::table('site_service')->where('id', 1)->get();
         return $servicedata;
     }
+
+    public function termsCondition()
+    {
+        $allservicedata = DB::table('site_service')->where('id', 1)->get();
+        return view('auth.termsCondition',['helpdata' => $allservicedata[0]]);
+    }
+    public function about_us()
+    {
+        $allservicedata = DB::table('site_service')->where('id', 1)->get();
+        return view('auth.aboutUs',['helpdata' => $allservicedata[0]]);
+    }
+    public function privacy_policy()
+    {
+        $allservicedata = DB::table('site_service')->where('id', 1)->get();
+        return view('auth.privacyPolicy',['helpdata' => $allservicedata[0]]);
+    }
 }

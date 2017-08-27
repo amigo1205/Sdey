@@ -7,9 +7,11 @@
     "require": {
         "php": ">=5.6.4",
         "jrean/laravel-user-verification": "^4.0",
-        "weblee/mandrill": "dev-master",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "pragmarx/countries": "^0.1.1",
+        "propaganistas/laravel-phone": "^3.0",
+        "weblee/mandrill": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

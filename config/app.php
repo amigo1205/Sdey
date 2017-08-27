@@ -178,6 +178,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Weblee\Mandrill\MandrillServiceProvider::class,
+        PragmaRX\Countries\ServiceProvider::class,
+        Propaganistas\LaravelPhone\PhoneServiceProvider::class,
 
     ],
 
@@ -229,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'MandrillMail'  => Weblee\Mandrill\MandrillFacade::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
+        'Countries'=> PragmaRX\Countries\Facade::class,
 
     ],
 

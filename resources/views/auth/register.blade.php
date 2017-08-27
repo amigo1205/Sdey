@@ -3,7 +3,7 @@
 Register
 @endsection
 @section('content')
-  <h1>Share App Admin Register</h1>
+  <h1>Register</h1>
   <form action="{{ route('register') }}" class="register-form" method="post">
       {{ csrf_field() }}
       <div class="alert alert-danger display-hide">
@@ -12,14 +12,21 @@ Register
       </div>
       <div class="row">
           <div class="col-sm-6">
-              <input class="form-control form-control-solid placeholder-no-fix form-group" type="email" autocomplete="off" placeholder="Email" value="{{ old('email') }}" name="email" required/>
-              @if ($errors->has('email'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
-                </span>
-              @endif
-            </div>
-          <div class="col-sm-6">
+            <input class="form-control form-control-solid placeholder-no-fix form-group" type="email" autocomplete="off" placeholder="Email" value="{{ old('email') }}" name="email" required/>
+            @if ($errors->has('email'))
+              <span class="help-block">
+                <strong>{{ $errors->first('email') }}</strong>
+              </span>
+            @endif
+          </div>
+          <div class="col-sm-2">
+            <select class="form-control form-control-solid placeholder-no-fix form-group" style="width:100%;border:0;border-bottom:1px solid #a0a9b4;">
+              @foreach($countries as $country)
+                <option @if($country == 'US') selected @endif>{{$country}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="col-sm-4">
               <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Phone Number" value="{{ old('phonenumber') }}" name="phonenumber" required/> </div>
       </div>
       <div class="row">

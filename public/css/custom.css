@@ -51,6 +51,40 @@
   text-align:left;
   padding-left:35px;
 }
+#background-video {
+  min-height: 100vh;
+}
+.login-register-page-logo {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+.loginpage-video-div{
+  float: right;
+}
+.login-form-footer-div{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.login-footer p {
+  margin: 0;
+}
+.login-copyright>p>a {
+  color: #000;
+}
+.login-copyright>p {
+  color: #000;
+}
+.site-help-page-div{
+  min-height: 75vh;
+  max-height: 75vh;
+  overflow-y: scroll;
+  padding-left: 30px;
+}
+.site-help-page-div p{
+  color: initial!important;
+}
 @media(max-width:991px){
   .site-about-us-form-div{
     width: 70vw;
@@ -58,10 +92,35 @@
   .site-about-us-form-container {
     padding-left: 25px;
   }
+  .loginpage-video-div{
+    float: none;
+  }
+  #background-video {
+    min-height: unset;
+    margin-top: 40px;
+  }
+  .login-form-footer-div {
+    position: relative;
+    background-color: #545454;
+  }
+  .login-footer {
+    padding: 10px 0!important;
+  }
+  .login-copyright>p>a {
+    color: #fff;
+  }
+  .login-copyright>p {
+    color: #fff;
+  }
+  .site-help-page-div {
+    min-height: 87vh;
+    max-height: 87vh;
+  }
 }
-@media(max-width: 768px){
-  .site-about-us-form-div{
-    width: 80vw;
+@media(max-width: 767px){
+  .site-help-page-div {
+    min-height: 75vh;
+    max-height: 75vh;
   }
 }
 @media(max-width: 499px){
@@ -71,5 +130,8 @@
   }
   .site-about-us-form-container {
     padding-left: 10px;
+  }
+  .login-register-page-logo {
+    left: calc(50% - 110px);
   }
 }

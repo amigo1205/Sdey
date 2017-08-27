@@ -3,7 +3,7 @@
 login
 @endsection
 @section('content')
-  <h1>Share App Admin Login</h1>
+  <h1>Login</h1>
   <form action="{{ url('login-page') }}" class="login-form" method="post">
       {{ csrf_field() }}
       <div class="alert alert-danger display-hide">
@@ -35,18 +35,22 @@ login
               </div>
           </div>
           <div class="col-sm-8 text-right">
-              <div class="forgot-password">
-                  <a href="{{url('password-reset')}}" id="forget-password" class="forget-password">Forgot Password?</a>
-              </div>
+
               <button class="btn blue" type="submit">Sign In</button>
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-8">
-              <p class="form-group" style="font-size:13px;">Don't have an account yet ? </p>
+          <div class="col-sm-12 text-right">
+            <div class="forgot-password" style="margin-right:0;padding-top:20px;">
+                <a href="{{url('password-reset')}}" id="forget-password" class="forget-password" style="color:#085af5">Forgot Password?</a>
+            </div>
           </div>
-          <div class="col-sm-4 text-right">
-              <p class="form-group"><a href="{{url('register-account')}}" style="font-size:13px;">Create New Account</a> </p>
+      </div>
+      <div class="row">
+          <div class="col-sm-12 text-right">
+            <div class="forgot-password" style="margin-right:0;padding-top:20px;">
+            <label style="font-size:12px;">Don't you have accoun? </label><a href="{{url('register-account')}}" style="font-size:13px;color:#085af5;"> Create New Account</a>
+            </div>
           </div>
       </div>
   </form>

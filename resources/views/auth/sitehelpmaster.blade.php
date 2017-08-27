@@ -54,13 +54,14 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="user-login-5">
             <div class="row bs-reset">
                 <div class="col-md-6 login-container bs-reset loginpage-video-div">
-                    <div class="login-content" style="padding-bottom:20px;">
-                      <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;">
-                          <img style="width:70%;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
+                    <div class="login-content site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
+                      <a style="position:absolute;top:20px;left:20px;" href="{{url('login-page')}}">Back</a>
+                      <div><h2 style="text-align:center">@yield('helptitle')</h2></div>
+                      <div class="site-help-page-div">
+                        <div style="width:100%;">
+                            @yield('content')
                         </div>
                       </div>
-                        @yield('content')
                     </div>
                 </div>
                 <div class="col-md-6 bs-reset">

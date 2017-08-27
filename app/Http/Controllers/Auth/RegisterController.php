@@ -12,6 +12,8 @@ use Jrean\UserVerification\Traits\VerifiesUsers;
 use Jrean\UserVerification\Facades\UserVerification;
 use Jrean\UserVerification\Facades\UserVerification as UserVerificationFacade;
 use App\Mail\OrderShipped;
+use PragmaRX\Countries\Facade as Countries;
+use Propaganistas\LaravelPhone\PhoneNumber as Country;
 use Mail;
 
 class RegisterController extends Controller
@@ -46,6 +48,13 @@ class RegisterController extends Controller
     {
       $this->middleware('guest', ['except' => ['getVerification', 'getVerificationError']]);
     }
+
+    public function showRegistrationForm()
+    {
+      $countrylists = Countries::all()->pluck('cca2');;
+      return view('auth.register',['countries' => $countrylists]);
+    }
+
 
     /**
      * Get a validator for an incoming registration request.
