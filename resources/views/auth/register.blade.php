@@ -20,9 +20,9 @@ Register
             @endif
           </div>
           <div class="col-sm-2">
-            <select class="form-control form-control-solid placeholder-no-fix form-group" style="width:100%;border:0;border-bottom:1px solid #a0a9b4;">
-              @foreach($countries as $country)
-                <option @if($country == 'US') selected @endif>{{$country}}</option>
+            <select class="form-control form-control-solid placeholder-no-fix form-group" name="phoneCountry" style="width:100%;border:0;border-bottom:1px solid #a0a9b4;">
+              @foreach($countries as $key => $country)
+                <option <?php if($key == 'US') echo 'selected' ?> value="<?php echo $key; ?>"><?php echo $key; ?></option>
               @endforeach
             </select>
           </div>

@@ -85,6 +85,11 @@
 .site-help-page-div p{
   color: initial!important;
 }
+.sitehelp-back-button {
+  position:absolute;
+  top:20px;
+  left:20px;
+}
 @media(max-width:991px){
   .site-about-us-form-div{
     width: 70vw;
@@ -115,6 +120,9 @@
   .site-help-page-div {
     min-height: 87vh;
     max-height: 87vh;
+  }
+  .sitehelp-back-button {
+    top:-35px;
   }
 }
 @media(max-width: 767px){

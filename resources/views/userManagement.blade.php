@@ -78,4 +78,32 @@
 @endsection
 @section('pagelevel_script_script')
 <script src="{{ cdn('assets/pages/scripts/table-datatables-managed.min.js') }}" type="text/javascript"></script>
+<script>
+  function delete_user(id,url){
+    url = "{{url('delete-user')}}";
+    swal({
+      title: "Are you sure?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete user!",
+      cancelButtonText: "No, cancel plx!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    }, function (isConfirm) {
+        if (isConfirm) {
+          axios.post(url, {user_id:id})
+          .then(function (response) {
+              $("#userlist_"+ id).remove();
+              swal("Deleted!", "Your imaginary file has been deleted.", "success");
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+        } else {
+            swal("Cancelled", "Your imaginary file is safe :)", "error");
+        }
+    });
+  };
+</script>
 @endsection

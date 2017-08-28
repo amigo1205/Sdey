@@ -180,6 +180,10 @@ return [
         Weblee\Mandrill\MandrillServiceProvider::class,
         PragmaRX\Countries\ServiceProvider::class,
         Propaganistas\LaravelPhone\PhoneServiceProvider::class,
+        Propaganistas\LaravelIntl\IntlServiceProvider::class,
+        Toplan\PhpSms\PhpSmsServiceProvider::class,
+        Toplan\Sms\SmsManagerServiceProvider::class,
+        SimpleSoftwareIO\SMS\SMSServiceProvider::class
 
     ],
 
@@ -232,6 +236,9 @@ return [
         'MandrillMail'  => Weblee\Mandrill\MandrillFacade::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class,
         'Countries'=> PragmaRX\Countries\Facade::class,
+        'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
+        'SmsManager' => Toplan\Sms\Facades\SmsManager::class,
+        'SMS' => SimpleSoftwareIO\SMS\Facades\SMS::class
 
     ],
 

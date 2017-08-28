@@ -50,6 +50,18 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END HEAD -->
 
     <body class=" login">
+        <div class="login-register-formoverlay">
+          <div style="display:table-cell;vertical-align:middle">
+            <div class="site-about-us-form-div">
+              <h3 class="about-us-form-header" style="font-size:30px;font-weight:bold">About Us</h3>
+              <br />
+              <div class="site-about-us-form-container-div">
+                <div class="site-about-us-form-container"></div>
+              </div>
+              <a class="site-about-us-form-div-close-btn"><i class="fa fa-close"></i></a>
+            </div>
+          </div>
+        </div>
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
             <div class="row bs-reset">
@@ -119,6 +131,25 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
+        <script>
+          var getservicedataUrl = "{{ url('getSiteHelp') }}";
+
+          $('.site-terms-service-btn').on('click', function(){
+            $.get(getservicedataUrl, function (data) {
+                 $('div.site-about-us-form-container').html(data[0]['terms_service']);
+            });
+            $('.about-us-form-header').html('Terms of Service');
+            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
+          });
+
+          $('.site-privacy-policy-btn').on('click', function(){
+            $.get(getservicedataUrl, function (data) {
+                 $('div.site-about-us-form-container').html(data[0]['privacy_policy']);
+            });
+            $('.about-us-form-header').html('Privacy Policy');
+            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
+          });
+        </script>
     </body>
 
 </html>

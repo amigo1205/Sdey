@@ -55,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="row bs-reset">
                 <div class="col-md-6 login-container bs-reset loginpage-video-div">
                     <div class="login-content site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
-                      <a style="position:absolute;top:20px;left:20px;" href="{{url('login-page')}}">Back</a>
+                      <a class="sitehelp-back-button" href="{{url('login-page')}}">Back</a>
                       <div><h2 style="text-align:center">@yield('helptitle')</h2></div>
                       <div class="site-help-page-div">
                         <div style="width:100%;">

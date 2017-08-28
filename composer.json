@@ -9,8 +9,11 @@
         "jrean/laravel-user-verification": "^4.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+        "mrabbani/laravel_infobip": "^0.15.0",
         "pragmarx/countries": "^0.1.1",
+        "propaganistas/laravel-intl": "^1.2",
         "propaganistas/laravel-phone": "^3.0",
+        "toplan/laravel-sms": "dev-master",
         "weblee/mandrill": "dev-master"
     },
     "require-dev": {

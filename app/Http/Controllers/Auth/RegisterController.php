@@ -13,7 +13,11 @@ use Jrean\UserVerification\Facades\UserVerification;
 use Jrean\UserVerification\Facades\UserVerification as UserVerificationFacade;
 use App\Mail\OrderShipped;
 use PragmaRX\Countries\Facade as Countries;
-use Propaganistas\LaravelPhone\PhoneNumber as Country;
+use Propaganistas\LaravelIntl\Facades\Country;
+use Propaganistas\LaravelPhone\PhoneNumber;
+use libphonenumber\PhoneNumberFormat;
+use libphonenumber\PhoneNumberType;
+use SimpleSoftwareIO\SMS\Facades\SMS;
 use Mail;
 
 class RegisterController extends Controller
@@ -51,7 +55,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-      $countrylists = Countries::all()->pluck('cca2');;
+      $countrylists = Country::all();
       return view('auth.register',['countries' => $countrylists]);
     }
 
@@ -134,28 +138,4 @@ class RegisterController extends Controller
 
         return redirect(url('login-page'))->with('status','congratulations Your email Verified.');
     }
-    // public function redirectIfVerified()
-    // {
-    //     return property_exists($this, 'redirectIfVerified') ? $this->$redirectTo : '/';
-    // }
-    //
-    // /**
-    //  * Get the redirect path for a successful verification token verification.
-    //  *
-    //  * @return string
-    //  */
-    // public function redirectAfterVerification()
-    // {
-    //     return property_exists($this, 'redirectAfterVerification') ? $this->redirectAfterVerification : '/';
-    // }
-    //
-    // /**
-    //  * Get the redirect path for a failing token verification.
-    //  *
-    //  * @return string
-    //  */
-    // public function redirectIfVerificationFails()
-    // {
-    //     return property_exists($this, 'redirectIfVerificationFails') ? $this->redirectIfVerificationFails : route('email-verification.error');
-    // }
 }

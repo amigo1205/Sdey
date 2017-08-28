@@ -47,7 +47,7 @@
       <div class="page-header-inner ">
           <!-- BEGIN LOGO -->
           <div class="page-logo">
-              <a href="index.html">
+              <a href="{{url('/')}}">
                   <img src="{{ cdn('assets/layouts/layout/img/logo.png') }}" alt="logo" class="logo-default" /> </a>
               <div class="menu-toggler sidebar-toggler"> </div>
           </div>
@@ -359,7 +359,7 @@
                       </a>
                       <ul class="dropdown-menu dropdown-menu-default">
                           <li>
-                              <a href="app_calendar.html">
+                              <a>
                                   <i class="icon-calendar"></i> Account </a>
                           </li>
                           <li>
@@ -379,11 +379,11 @@
                   <!-- END USER LOGIN DROPDOWN -->
                   <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                  <li class="dropdown dropdown-quick-sidebar-toggler">
-                      <a href="javascript:;" class="dropdown-toggle">
+                  <!-- <li class="dropdown dropdown-quick-sidebar-toggler">
+                      <a href="javascript:;" class="">
                           <i class="icon-logout"></i>
                       </a>
-                  </li>
+                  </li> -->
                   <!-- END QUICK SIDEBAR TOGGLER -->
               </ul>
           </div>
@@ -512,7 +512,7 @@
           <div class="page-content">
               <!-- BEGIN PAGE HEADER-->
               <!-- BEGIN THEME PANEL -->
-              <div class="theme-panel hidden-xs hidden-sm">
+              <div class="theme-panel hidden-xs hidden-sm" style="display:none;">
                   <div class="toggler"> </div>
                   <div class="toggler-close"> </div>
                   <div class="theme-options">
@@ -569,15 +569,7 @@
               <div class="page-bar">
                   <ul class="page-breadcrumb">
                       <li>
-                          <a href="index.html">Home</a>
-                          <i class="fa fa-circle"></i>
-                      </li>
-                      <li>
-                          <a href="#">Blank Page</a>
-                          <i class="fa fa-circle"></i>
-                      </li>
-                      <li>
-                          <span>Page Layouts</span>
+                          <a href="index.html" style="text-transform: uppercase;">{{Route::current()->uri}}</a>
                       </li>
                   </ul>
                   <div class="page-toolbar">
