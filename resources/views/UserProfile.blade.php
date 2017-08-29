@@ -52,10 +52,10 @@
                           <div class="row">
                               <div class="col-md-8 profile-info">
                                   <h1 class="font-green sbold uppercase">{{ Auth::user()->first_name }}&nbsp;{{ Auth::user()->last_name }}</h1>
-                                  <p>Country &nbsp;: unknown</p>
+                                  <p>Country &nbsp;: Nigeria</p>
                                   <p>Company Name&nbsp;: {{ Auth::user()->company_name }}</p>
                                   <p>Email &nbsp;: {{ Auth::user()->email }}</p>
-                                  <p>Phone Number &nbsp;: {{ Auth::user()->phone_number }}</p>
+                                  <p>Phone Number &nbsp;: 234{{ Auth::user()->phone_number }}</p>
                               </div>
                               <!--end col-md-8-->
                           </div>

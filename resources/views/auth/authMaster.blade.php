@@ -64,8 +64,8 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
-            <div class="row bs-reset">
-                <div class="col-md-6 login-container bs-reset loginpage-video-div">
+            <div class="row bs-reset" style="background-color: #000;">
+                <div class="col-md-6 login-container bs-reset loginpage-video-div" style="background-color: #fff;">
                     <div class="login-content" style="padding-bottom:20px;">
                       <div class="row">
                         <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:50px;">

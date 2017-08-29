@@ -34,7 +34,7 @@
   @yield('pagelevel_style')
   <!-- END PAGE LEVEL STYLES -->
   <!-- BEGIN THEME LAYOUT STYLES -->
-  <link href="{{cdn('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{cdn('assets/layouts/layout/css/layout.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
   <link href="{{cdn('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('css/custom.css')}}" rel="stylesheet" type="text/css" />
@@ -349,13 +349,13 @@
                   <!-- BEGIN USER LOGIN DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                   <li class="dropdown dropdown-user">
-                      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="padding-left: 5px;padding-bottom: 10px;background-color: #364150;">
                           @if(file_exists('assets/images/avatar'.'/'.Auth::User()->id.'_thumbnail.jpg'))
                             <img alt="" class="img-circle" src="{{ cdn('assets/images/avatar').'/'.Auth::User()->id.'_thumbnail.jpg'}}" />
                           @else
                             <img alt="" class="img-circle" src="{{ cdn('assets/images/avatar/nophoto.jpg') }}" />
                           @endif
-                          <span class="username username-hide-on-mobile"> {{Auth::user()->first_name}}&nbsp;{{Auth::user()->last_name}} </span>
+                          <span class="username username-hide-on-mobile" style="display: inline-block;"> {{Auth::user()->first_name}}&nbsp;{{Auth::user()->last_name}} </span>
                           <i class="fa fa-angle-down"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-default">

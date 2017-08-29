@@ -54,8 +54,24 @@
                                 <td class="center"> {{$user->phone_number}} </td>
                                 <td class="center"> @if($user->user_role == 1) ADMIN @else User @endif</td>
                                 <td align='center'>
-                                  <a type="button" onclick="edit_user({{$user->id}})" class="btn btn-default green">@if($user->user_role == 1)As User @else As Admin @endif</a>
-                                    <a type="button" onclick="delete_user({{$user->id}})" class="btn btn-default red-flamingo">Delete</a>
+                                  <a type="button" onclick="edit_user({{$user->id}})" class="btn btn-default green user-managebutton-size">@if($user->user_role == 1)As User @else As Admin @endif</a>
+                                    <a type="button" onclick="delete_user({{$user->id}})" class="btn btn-default red-flamingo user-managebutton-size">Delete</a>
+                                </td>
+                            </tr>
+                            @elseif(Auth::user()->email == $user->email)
+                              <tr class="odd gradeX" id="userlist_{{$user->id}}">
+                                <td>
+                                    <input type="checkbox" class="checkboxes" value="1" /> </td>
+                                <td> {{$user->first_name}} {{$user->last_name}} </td>
+                                <td>
+                                    <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
+                                </td>
+                                <td> {{$user->company_name}} </td>
+                                <td class="center"> {{$user->phone_number}} </td>
+                                <td class="center"> @if($user->user_role > 1) S ADMIN @elseif($user->user_role == 1) ADMIN @else User @endif</td>
+                                <td align='center'>
+                                  <a type="button" class="btn btn-default green user-managebutton-size">@if($user->user_role > 1) S ADMIN @elseif($user->user_role == 1) ADMIN @else  User @endif</a>
+                                    <a type="button" class="btn btn-default red-flamingo user-managebutton-size">Delete</a>
                                 </td>
                             </tr>
                           @endif

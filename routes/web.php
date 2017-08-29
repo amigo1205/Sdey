@@ -40,6 +40,7 @@ Route::get('/terms-and-condition', 'SiteHelpController@termsCondition');
 Route::get('/about-us', 'SiteHelpController@about_us');
 Route::get('/privacy-policy', 'SiteHelpController@privacy_policy');
 Route::get('/admin/login', 'Admin\AdminLoginController@showLoginForm');
+Route::get('/admin', 'Admin\AdminLoginController@gotologinform');
 Route::post('/admin/login', 'Admin\AdminLoginController@login');
 Route::get('/admin/forget-password', 'Admin\AdminForgotPasswordController@showLinkRequestForm');
 Route::post('/admin/password-email', 'Admin\AdminForgotPasswordController@sendResetLinkEmail');

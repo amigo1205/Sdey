@@ -40,6 +40,11 @@ class AdminLoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function gotologinform()
+    {
+        return redirect(url('admin/login'));
+    }
+
     public function validateLogin($request)
     {
         $this->validate($request, [
