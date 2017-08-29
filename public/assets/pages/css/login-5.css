@@ -8,7 +8,7 @@
   text-align: right; }
   .user-login-5 .login-bg {
   background-color: #000;
-  min-height: 100vh; }
+  min-height: 90vh; }
   .user-login-5 .login-logo {
   position: absolute;
   top: 2.5em;
@@ -18,7 +18,7 @@
   left: 80px; }
   .user-login-5 .login-container {
   position: relative;
-  min-height: 100vh; }
+  min-height: 90vh; }
   .user-login-5 .login-container > .login-content,
   .user-login-5 .login-container .login-social,
   .user-login-5 .login-container .login-copyright {

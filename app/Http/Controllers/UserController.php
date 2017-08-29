@@ -175,4 +175,36 @@ class UserController extends Controller
       DB::table('users')->where('id', '=', $user_id)->delete();
       Cache::flush();
     }
+    public function changelevelmode()
+    {
+      // print_r(Auth::User()->id);
+      // exit;
+      if (Auth::User()->id) {
+          $obj_user = User::find(Auth::User()->id);
+          if($obj_user->user_role_check == 1){
+            $obj_user->user_role_check = 0;
+          }
+          else{
+            $obj_user->user_role_check = 1;
+          }
+          $obj_user->save();
+          return back()->with('done', '');
+      }
+      else {
+          return back()->with('error', 'You have no country for this action');
+      }
+    }
+    public function changelevel(Request $request)
+    {
+      $user_id = $request->user_id;
+      $obj_user = User::find($user_id);
+      if($obj_user->user_role == 1){
+        $obj_user->user_role = 0;
+      }
+      else if($obj_user->user_role == 0){
+        $obj_user->user_role = 1;
+      }
+      $obj_user->save();
+      return $obj_user->user_role;
+    }
 }

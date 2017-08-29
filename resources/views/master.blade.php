@@ -21,13 +21,13 @@
   <link href="{{cdn('assets/global/plugins/uniform/css/uniform.default.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('assets/global/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet" type="text/css" />
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
   <!-- END GLOBAL MANDATORY STYLES -->
   <!-- BEGIN PAGE LEVEL PLUGINS -->
   @yield('pagelevel_plugin')
   <!-- END PAGE LEVEL PLUGINS -->
   <!-- BEGIN THEME GLOBAL STYLES -->
-  <link href="{{cdn('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+  <link href="{{cdn('assets/global/css/components.css')}}" rel="stylesheet" id="style_components" type="text/css" />
   <link href="{{cdn('assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
   <!-- END THEME GLOBAL STYLES -->
   <!-- BEGIN PAGE LEVEL STYLES -->
@@ -37,6 +37,7 @@
   <link href="{{cdn('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('assets/layouts/layout/css/themes/darkblue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
   <link href="{{cdn('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+  <link href="{{cdn('css/custom.css')}}" rel="stylesheet" type="text/css" />
   <!-- END THEME LAYOUT STYLES -->
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -60,7 +61,7 @@
               <ul class="nav navbar-nav pull-right">
                   <!-- BEGIN NOTIFICATION DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                  <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                  <!-- <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                       <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                           <i class="icon-bell"></i>
                           <span class="badge badge-default"> 7 </span>
@@ -157,11 +158,11 @@
                               </ul>
                           </li>
                       </ul>
-                  </li>
+                  </li> -->
                   <!-- END NOTIFICATION DROPDOWN -->
                   <!-- BEGIN INBOX DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                  <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                  <!-- <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                       <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                           <i class="icon-envelope-open"></i>
                           <span class="badge badge-default"> 4 </span>
@@ -232,11 +233,11 @@
                               </ul>
                           </li>
                       </ul>
-                  </li>
+                  </li> -->
                   <!-- END INBOX DROPDOWN -->
                   <!-- BEGIN TODO DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                  <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
+                  <!-- <li class="dropdown dropdown-extended dropdown-tasks" id="header_task_bar">
                       <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                           <i class="icon-calendar"></i>
                           <span class="badge badge-default"> 3 </span>
@@ -343,7 +344,7 @@
                               </ul>
                           </li>
                       </ul>
-                  </li>
+                  </li> -->
                   <!-- END TODO DROPDOWN -->
                   <!-- BEGIN USER LOGIN DROPDOWN -->
                   <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
@@ -354,7 +355,7 @@
                           @else
                             <img alt="" class="img-circle" src="{{ cdn('assets/images/avatar/nophoto.jpg') }}" />
                           @endif
-                          <span class="username username-hide-on-mobile"> {{Auth::user()->first_name}} </span>
+                          <span class="username username-hide-on-mobile"> {{Auth::user()->first_name}}&nbsp;{{Auth::user()->last_name}} </span>
                           <i class="fa fa-angle-down"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-default">
@@ -455,6 +456,7 @@
                           @endif
                       </a>
                   </li>
+                  @if(Auth::user()->user_role_check == 1)
                   <li class="nav-item @if(Route::current()->uri=='user-management')open active @endif">
                       <a href="{{url('user-management')}}" class="nav-link nav-toggle">
                           <i class="icon-user"></i>
@@ -464,6 +466,7 @@
                           @endif
                       </a>
                   </li>
+                  @endif
                   <li class="heading">
                       <h3 class="uppercase">Section 2</h3>
                   </li>
@@ -567,12 +570,12 @@
               <!-- END THEME PANEL -->
               <!-- BEGIN PAGE BAR -->
               <div class="page-bar">
-                  <ul class="page-breadcrumb">
+                  <!-- <ul class="page-breadcrumb">
                       <li>
                           <a href="index.html" style="text-transform: uppercase;">{{Route::current()->uri}}</a>
                       </li>
-                  </ul>
-                  <div class="page-toolbar">
+                  </ul> -->
+                  <!-- <div class="page-toolbar">
                       <div class="btn-group pull-right">
                           <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions
                               <i class="fa fa-angle-down"></i>
@@ -596,7 +599,10 @@
                               </li>
                           </ul>
                       </div>
-                  </div>
+                  </div> -->
+                  @if(Auth::user()->user_role > 0)
+                  <div class="page-toolbar" ><a href="{{url('levelmodeChange')}}" class="btn btn-default green">@if(Auth::user()->user_role_check == 1)User Mode @else Admin Mode @endif</a></div>
+                  @endif
               </div>
               <!-- END PAGE BAR -->
               @yield('content')
@@ -1169,9 +1175,9 @@
   <!-- END CONTAINER -->
   <!-- BEGIN FOOTER -->
   <div class="page-footer">
-      <div class="page-footer-inner"> 2014 &copy; Metronic by keenthemes.
-          <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+      <div class="page-footer-inner col-md-6"><a href="{{url('terms-and-condition')}}" target="_blank">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}" target="_blank"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}" target="_blank">About Us</a> | <a>Contact Us</a>
       </div>
+      <div class="page-footer-inner col-md-6"><p style="margin:0">Copyright &copy; Keenthemes 2015</p></div>
       <div class="scroll-to-top">
           <i class="icon-arrow-up"></i>
       </div>
@@ -1194,6 +1200,7 @@
   <!-- END PAGE LEVEL PLUGINS -->
   <!-- BEGIN THEME GLOBAL SCRIPTS -->
   <script src="{{cdn('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+  <script src="{{cdn('assets/pages/scripts/components-bootstrap-switch.js')}}" type="text/javascript"></script>
   <!-- END THEME GLOBAL SCRIPTS -->
   <!-- BEGIN PAGE LEVEL SCRIPTS -->
   @yield('pagelevel_script_script')

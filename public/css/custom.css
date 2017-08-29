@@ -52,7 +52,7 @@
   padding-left:35px;
 }
 #background-video {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 .login-register-page-logo {
   position: absolute;
@@ -90,6 +90,20 @@
   top:20px;
   left:20px;
 }
+.footer-div-new-design-row {
+  background-color: #000;
+  height: 10vh;
+}
+.footer-div-new-design-col{
+  background-color: #fff;
+  height: 10vh;
+}
+.page-footer-inner{
+  text-align: center;
+}
+.page-footer-inner a{
+  color: #98a6ba;
+}
 @media(max-width:991px){
   .site-about-us-form-div{
     width: 70vw;
@@ -124,11 +138,24 @@
   .sitehelp-back-button {
     top:-35px;
   }
+  .footer-div-new-design-row {
+    background-color: #000;
+    height: auto;
+  }
+  .footer-div-new-design-col{
+    background-color: #525252;
+    height: auto;
+  }
 }
 @media(max-width: 767px){
   .site-help-page-div {
     min-height: 75vh;
     max-height: 75vh;
+  }
+  .page-footer-inner{
+    float: none!important;
+    text-align: center;
+    display: block!important;
   }
 }
 @media(max-width: 499px){

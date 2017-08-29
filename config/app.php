@@ -183,7 +183,7 @@ return [
         Propaganistas\LaravelIntl\IntlServiceProvider::class,
         Toplan\PhpSms\PhpSmsServiceProvider::class,
         Toplan\Sms\SmsManagerServiceProvider::class,
-        SimpleSoftwareIO\SMS\SMSServiceProvider::class
+        SimpleSoftwareIO\SMS\SMSServiceProvider::class,
 
     ],
 

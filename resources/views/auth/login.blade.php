@@ -1,9 +1,9 @@
 @extends('auth.authMaster')
 @section('title')
-login
+Login
 @endsection
 @section('content')
-  <h1>Login</h1>
+  <h1>Login Page</h1>
   <form action="{{ url('login-page') }}" class="login-form" method="post">
       {{ csrf_field() }}
       <div class="alert alert-danger display-hide">
@@ -42,7 +42,7 @@ login
       <div class="row">
           <div class="col-sm-12 text-right">
             <div class="forgot-password" style="margin-right:0;padding-top:20px;">
-                <a href="{{url('password-reset')}}" id="forget-password" class="forget-password" style="color:#085af5">Forgot Password?</a>
+                <a href="{{url('forget-password')}}" id="forget-password" class="forget-password" style="color:#085af5">Forgot Password?</a>
             </div>
           </div>
       </div>

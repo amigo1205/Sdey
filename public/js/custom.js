@@ -55,4 +55,9 @@ $(function () {
     console.log('ddd');
     $('.login-register-formoverlay').css({visibility:'hidden',opacity:'0'})
   })
+
+  $('.admin-mode-button').on('change', function(){
+    var qqq = $('.admin-mode-button').val();
+    console.log(qqq);
+  })
 });

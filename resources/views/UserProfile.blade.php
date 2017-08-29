@@ -28,7 +28,7 @@
               <li class="active">
                   <a href="#tab_1_1" data-toggle="tab"> Edit Profile </a>
               </li>
-              @if(Auth::user()->user_role==2)
+              @if( Auth::user()->user_role == 2 && Auth::user()->user_role_check == 1)
               <li>
                   <a href="#tab_1_6" data-toggle="tab"> Help </a>
               </li>
@@ -51,7 +51,7 @@
                       <div class="col-md-9">
                           <div class="row">
                               <div class="col-md-8 profile-info">
-                                  <h1 class="font-green sbold uppercase">{{ Auth::user()->first_name }}&nbsp;{{ Auth::user()->last_name }} @if(Auth::user()->user_role ==2) (Super Admin) @elseif(Auth::user()->user_role == 1) (Admin) @endif</h1>
+                                  <h1 class="font-green sbold uppercase">{{ Auth::user()->first_name }}&nbsp;{{ Auth::user()->last_name }}</h1>
                                   <p>Country &nbsp;: unknown</p>
                                   <p>Company Name&nbsp;: {{ Auth::user()->company_name }}</p>
                                   <p>Email &nbsp;: {{ Auth::user()->email }}</p>

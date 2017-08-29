@@ -52,47 +52,16 @@ License: You must have a valid license purchased only from themeforest(the above
     <body class=" login">
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
+          <div class="container">
             <div class="row bs-reset">
-                <div class="col-md-6 login-container bs-reset loginpage-video-div">
-                    <div class="login-content site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
-                      <a class="sitehelp-back-button" href="{{url('login-page')}}">Back</a>
+                <div class="col-md-12 login-container bs-reset loginpage-video-div">
+                    <div class="site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
                       <div><h2 style="text-align:center">@yield('helptitle')</h2></div>
-                      <div class="site-help-page-div">
-                        <div style="width:100%;">
                             @yield('content')
-                        </div>
-                      </div>
                     </div>
-                </div>
-                <div class="col-md-6 bs-reset">
-                    <div class="login-bg">
-                      <div style="width:100%;height:100%;min-height;100vh;">
-                        <video id="background-video" preload="auto" loop="loop" autoplay="true" style="width:100%;" muted="muted">
-                            <source src="{{cdn('assets/pages/video/shareappvideo.mp4')}}" type="video/mp4">
-                        </video>
-                        <img class="login-register-page-logo" src="{{cdn('assets/pages/img/login/Share_App_Logo.png')}}">
-                      </div>
-                    </div>
-                </div>
-                <div class="col-md-6 login-form-footer-div">
-                  <div class="login-footer" style="padding:20px 0;">
-                      <div class="row bs-reset" style="padding-bottom:10px;">
-                          <div class="col-sm-12 bs-reset" style="text-align:center;">
-                              <div class="login-copyright" style="display:inline-block;padding:0;text-align:center;">
-                                  <p><a href="{{url('terms-and-condition')}}">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}">About Us</a> | <a>Contact Us</a></p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row bs-reset">
-                          <div class="col-sm-12 bs-reset" style="text-align:center;">
-                              <div class="login-copyright text-right" style="display:inline-block;padding:0;">
-                                  <p>Copyright &copy; Keenthemes 2015</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
                 </div>
             </div>
+          </div>
         </div>
         <!-- END : LOGIN PAGE 5-1 -->
         <!-- BEGIN CORE PLUGINS -->

@@ -3,7 +3,7 @@
 Register
 @endsection
 @section('content')
-  <h1>Register</h1>
+  <h1>Signup/Create Account</h1>
   <form action="{{ route('register') }}" class="register-form" method="post">
       {{ csrf_field() }}
       <div class="alert alert-danger display-hide">
@@ -19,14 +19,14 @@ Register
               </span>
             @endif
           </div>
-          <div class="col-sm-2">
+          <div class="col-sm-3">
             <select class="form-control form-control-solid placeholder-no-fix form-group" name="phoneCountry" style="width:100%;border:0;border-bottom:1px solid #a0a9b4;">
               @foreach($countries as $key => $country)
-                <option <?php if($key == 'US') echo 'selected' ?> value="<?php echo $key; ?>"><?php echo $key; ?></option>
+                <option <?php if($key == 'US') echo 'selected' ?> value="<?php echo $key; ?>"><?php echo $country; ?></option>
               @endforeach
             </select>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
               <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Phone Number" value="{{ old('phonenumber') }}" name="phonenumber" required/> </div>
       </div>
       <div class="row">

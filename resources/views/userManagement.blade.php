@@ -37,7 +37,6 @@
                               <th> Company Name </th>
                               <th> Phone Number </th>
                               <th> Level </th>
-                              <th> Status </th>
                               <th> Action </th>
                           </tr>
                       </thead>
@@ -54,10 +53,8 @@
                                 <td> {{$user->company_name}} </td>
                                 <td class="center"> {{$user->phone_number}} </td>
                                 <td class="center"> @if($user->user_role == 1) ADMIN @else User @endif</td>
-                                <td>
-                                    <span class="label label-sm label-success"> @if($user->verified ==1) Approved @else unApproved @endif</span>
-                                </td>
                                 <td align='center'>
+                                  <a type="button" onclick="edit_user({{$user->id}})" class="btn btn-default green">@if($user->user_role == 1)As User @else As Admin @endif</a>
                                     <a type="button" onclick="delete_user({{$user->id}})" class="btn btn-default red-flamingo">Delete</a>
                                 </td>
                             </tr>
@@ -79,7 +76,7 @@
 @section('pagelevel_script_script')
 <script src="{{ cdn('assets/pages/scripts/table-datatables-managed.min.js') }}" type="text/javascript"></script>
 <script>
-  function delete_user(id,url){
+  function delete_user(id){
     url = "{{url('delete-user')}}";
     swal({
       title: "Are you sure?",
@@ -105,5 +102,18 @@
         }
     });
   };
+  function edit_user(id){
+    console.log(id);
+    url = "{{url('levelChange')}}";
+    url1 = "{{url('user-management')}}";
+
+    axios.post(url, {user_id:id})
+    .then(function (response) {
+        window.location.replace(url1);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 </script>
 @endsection

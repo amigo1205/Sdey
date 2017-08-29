@@ -37,7 +37,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ cdn('assets/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{ cdn('assets/global/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="{{ cdn('assets/global/css/components.css') }}" rel="stylesheet" id="style_components" type="text/css" />
     <link href="{{ cdn('assets/global/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN PAGE LEVEL STYLES -->
@@ -68,8 +68,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="col-md-6 login-container bs-reset loginpage-video-div">
                     <div class="login-content" style="padding-bottom:20px;">
                       <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;">
-                          <img style="width:70%;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
+                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:50px;">
+                          <img style="width:140px;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
                         </div>
                       </div>
                         @yield('content')
@@ -77,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg">
-                      <div style="width:100%;height:100%;min-height;100vh;">
+                      <div style="width:100%;height:90vh;">
                         <video id="background-video" preload="auto" loop="loop" autoplay="true" style="width:100%;" muted="muted">
                             <source src="{{cdn('assets/pages/video/shareappvideo.mp4')}}" type="video/mp4">
                         </video>
@@ -85,24 +85,29 @@ License: You must have a valid license purchased only from themeforest(the above
                       </div>
                     </div>
                 </div>
-                <div class="col-md-6 login-form-footer-div">
-                  <div class="login-footer" style="padding:20px 0;">
-                      <div class="row bs-reset" style="padding-bottom:10px;">
-                          <div class="col-sm-12 bs-reset" style="text-align:center;">
-                              <div class="login-copyright" style="display:inline-block;padding:0;text-align:center;">
-                                  <p><a href="{{url('terms-and-condition')}}">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}">About Us</a> | <a>Contact Us</a></p>
-                              </div>
+
+            </div>
+            <div class="row bs-reset footer-div-new-design-row">
+              <div class="col-md-6" >
+              </div>
+              <div class="col-md-6 footer-div-new-design-col">
+                <div class="login-footer" style="padding:20px 20px;">
+                  <div class="row bs-reset" style="padding-bottom:10px;">
+                      <div class="col-sm-12 bs-reset" style="text-align:center;">
+                          <div class="login-copyright" style="display:inline-block;padding:0;text-align:center;">
+                              <p><a href="{{url('terms-and-condition')}}" target="_blank">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}" target="_blank"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}" target="_blank">About Us</a> | <a>Contact Us</a></p>
                           </div>
                       </div>
-                      <div class="row bs-reset">
-                          <div class="col-sm-12 bs-reset" style="text-align:center;">
-                              <div class="login-copyright text-right" style="display:inline-block;padding:0;">
-                                  <p>Copyright &copy; Keenthemes 2015</p>
-                              </div>
+                  </div>
+                  <div class="row bs-reset">
+                      <div class="col-sm-12 bs-reset" style="text-align:center;">
+                          <div class="login-copyright text-right" style="display:inline-block;padding:0;">
+                              <p>Copyright &copy; Keenthemes 2015</p>
                           </div>
                       </div>
                   </div>
                 </div>
+              </div>
             </div>
         </div>
         <!-- END : LOGIN PAGE 5-1 -->
