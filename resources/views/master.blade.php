@@ -39,7 +39,7 @@
   <link href="{{cdn('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
   <link href="{{cdn('css/custom.css')}}" rel="stylesheet" type="text/css" />
   <!-- END THEME LAYOUT STYLES -->
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{cdn('assets/pages/img/login/favicon1.png')}}">
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
   <!-- BEGIN HEADER -->
@@ -1177,7 +1177,7 @@
   <div class="page-footer">
       <div class="page-footer-inner col-md-6"><a href="{{url('terms-and-condition')}}" target="_blank">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}" target="_blank"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}" target="_blank">About Us</a> | <a>Contact Us</a>
       </div>
-      <div class="page-footer-inner col-md-6"><p style="margin:0">Copyright &copy; Keenthemes 2015</p></div>
+      <div class="page-footer-inner col-md-6"><p style="margin:0">Copyright &copy; ShareAd Group - Coremobile Projects.</p></div>
       <div class="scroll-to-top">
           <i class="icon-arrow-up"></i>
       </div>

@@ -71,10 +71,12 @@
   margin: 0;
 }
 .login-copyright>p>a {
-  color: #000;
+  color: #7f7f7f;
+  font-size: 12px;
 }
 .login-copyright>p {
-  color: #000;
+  color: #7f7f7f;
+  font-size: 12px;
 }
 .site-help-page-div{
   min-height: 75vh;
@@ -92,11 +94,11 @@
 }
 .footer-div-new-design-row {
   background-color: #000;
-  min-height: 10vh;
+  min-height: 7vh;
 }
 .footer-div-new-design-col{
   background-color: #fff;
-  min-height: 10vh;
+  min-height: 7vh;
 }
 .page-footer-inner{
   text-align: center;
@@ -107,6 +109,20 @@
 
 .user-managebutton-size{
   width: 88px;
+}
+.sitehelp-header-bar {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(#969696, #ffffff);
+}
+.sitehelp-page-logo{
+  margin-top: 35px;
+}
+.sitehelp-footer-bar{
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+    bottom: -60px;
 }
 @media(max-width:991px){
   .site-about-us-form-div{
@@ -127,13 +143,15 @@
     background-color: #545454;
   }
   .login-footer {
-    padding: 10px 0!important;
+    padding: 5px 0!important;
   }
   .login-copyright>p>a {
     color: #fff;
+    font-size: 10px;
   }
   .login-copyright>p {
     color: #fff;
+    font-size: 10px;
   }
   .site-help-page-div {
     min-height: 87vh;
@@ -145,10 +163,12 @@
   .footer-div-new-design-row {
     background-color: #000;
     height: auto;
+    min-height: 5vh;
   }
   .footer-div-new-design-col{
     background-color: #525252;
     height: auto;
+    min-height: 5vh;
   }
 }
 @media(max-width: 767px){
@@ -178,5 +198,14 @@
     display: inline-block;
     margin: 0 auto!important;
     margin-left: calc(50% - 50px)!important;
+  }
+  .sitehelp-header-bar {
+    height: 70px;
+  }
+  .sitehelp-page-logo{
+    margin-top: 20px;
+  }
+  .sitehelp-logo-align{
+    text-align: center;
   }
 }

@@ -1,9 +1,9 @@
 @extends('auth.sitehelpmaster')
 @section('title')
-login
+Terms and conditions
 @endsection
 @section('helptitle')
-Terms and Conditions 
+Terms and Conditions
 @endsection
 @section('content')
   <?php echo html_entity_decode($helpdata->terms_service); ?>

@@ -37,32 +37,64 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{ cdn('assets/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{ cdn('assets/global/css/components.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="{{ cdn('assets/global/css/components.css') }}" rel="stylesheet" id="style_components" type="text/css" />
     <link href="{{ cdn('assets/global/css/plugins.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="{{ cdn('assets/pages/css/login-5.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ cdn('css/custom.css') }}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL STYLES -->
+    <style type="text/css">
+    	.page-footer-inner a {
+    		color: #7f7f7f;
+        font-size: 12px;
+    	}
+      .page-footer-inner p {
+    		color: #7f7f7f;
+        font-size: 12px;
+    	}
+    </style>
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{cdn('assets/pages/img/login/favicon1.png')}}">
     <!-- END HEAD -->
 
-    <body class=" login">
+    <body class=" login" style="min-height:93vh;position:relative;">
         <!-- BEGIN : LOGIN PAGE 5-1 -->
-        <div class="user-login-5">
+        <header class="sitehelp-header-bar" id="site-head">
           <div class="container">
-            <div class="row bs-reset">
-                <div class="col-md-12 login-container bs-reset loginpage-video-div">
-                    <div class="site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
-                      <div><h2 style="text-align:center">@yield('helptitle')</h2></div>
-                            @yield('content')
-                    </div>
-                </div>
+            <div class="row">
+              <div class="col-md-12 sitehelp-logo-align"><img class="sitehelp-page-logo" src="{{cdn('assets/pages/img/login/Share_App_Logo.png')}}"></div>
             </div>
           </div>
+        </header>
+        <div class="container">
+          <div class="row bs-reset">
+              <div class="col-md-12 login-container bs-reset loginpage-video-div">
+                  <div class="site-help-page" style="padding-bottom:20px;padding-left:10px;padding-right:10px;">
+                    <div class="row" style="padding-bottom:30px;">
+                      <div class="col-md-6"><h2>@yield('helptitle')</h2></div>
+                      <div class="col-md-6"><h2 style="text-align:right;"><a style="font-size:20px;" onclick="printDiv('sitehelp-div')"><i class="fa fa-print"></i>Print</a></h2></div>
+                    </div>
+                    <div id="sitehelp-div">
+                          @yield('content')
+                    </div>
+                    <div class="row" style="padding-top:20px;padding-bottom:10px;text-align:right;">
+                      <div class="col-md-12"><a href="#site-head" style="font-size:15px;font-weight:bold;">Back to Top</a></div>
+                    </div>
+                  </div>
+              </div>
+          </div>
         </div>
+        <footer class="sitehelp-footer-bar">
+          <div class="container">
+            <div class="row">
+              <div class="page-footer-inner col-md-7"><a href="{{url('terms-and-condition')}}" target="_blank">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}" target="_blank"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}" target="_blank">About Us</a> | <a>Contact Us</a>
+              </div>
+              <div class="page-footer-inner col-md-5"><p style="margin:0">Copyright &copy; ShareAd Group - Coremobile Projects.</p></div>
+            </div>
+          </div>
+        </footer>
         <!-- END : LOGIN PAGE 5-1 -->
         <!-- BEGIN CORE PLUGINS -->
         <script src="{{ cdn('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
@@ -86,6 +118,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="{{ cdn('assets/pages/scripts/login-5.js') }}" type="text/javascript"></script>
         <script src="{{ cdn('js/custom.js') }}" type="text/javascript"></script>
+        <script>
+          function printDiv(divName) {
+             var printContents = document.getElementById(divName).innerHTML;
+             var originalContents = document.body.innerHTML;
+
+             document.body.innerHTML = printContents;
+
+             window.print();
+
+             document.body.innerHTML = originalContents;
+           }
+        </script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->

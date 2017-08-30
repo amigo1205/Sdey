@@ -2,6 +2,23 @@
 @section('title')
 Register
 @endsection
+@section('customcss')
+<style>
+  .user-login-5 .login-container > .login-content {
+    padding-top: 150px;
+  }
+  @media(max-width:1399px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 180px;
+    }
+  }
+  @media(max-width: 992px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 100px;
+    }
+  }
+</style>
+@endsection
 @section('content')
   <h1>Signup/Create Account</h1>
   <form action="{{ route('register') }}" class="register-form" method="post">
@@ -46,7 +63,7 @@ Register
       <div class="row">
           <div class="col-sm-12">
               <div class="rem-password" style="margin-bottom:20px;">
-                  <label style="cursor:pointer;"><input type="checkbox" name="confirm_terms" class="rem-checkbox" /> I agree to the </label> <a class="site-terms-service-btn">Terms of Service</a> and <a class="site-privacy-policy-btn"> Privacy Policy </a>
+                  <label style="cursor:pointer;"><input type="checkbox" name="confirm_terms" class="rem-checkbox" /> I agree to the </label> <a class="site-terms-service-btn" href="{{url('terms-and-condition')}}" target="_blank">Terms of Service</a> and <a class="site-privacy-policy-btn" href="{{url('privacy-policy')}}" target="_blank"> Privacy Policy </a>
               </div>
           </div>
       </div>

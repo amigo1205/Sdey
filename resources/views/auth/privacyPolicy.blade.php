@@ -1,6 +1,6 @@
 @extends('auth.sitehelpmaster')
 @section('title')
-login
+Privacy policy
 @endsection
 @section('helptitle')
 Privacy Policy

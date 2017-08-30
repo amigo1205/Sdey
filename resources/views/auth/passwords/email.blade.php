@@ -2,6 +2,23 @@
 @section('title')
 Forget password
 @endsection
+@section('customcss')
+<style>
+  .user-login-5 .login-container > .login-content {
+    padding-top: 200px;
+  }
+  @media(max-width:1399px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 230px;
+    }
+  }
+  @media(max-width: 992px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 100px;
+    }
+  }
+</style>
+@endsection
 @section('content')
   <h1>Share App Admin Forget Password</h1>
   <form class="forget-form" action="{{ url('password-email') }}" method="post">

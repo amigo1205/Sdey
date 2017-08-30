@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+Create new Application
+@endsection
 @section('content')
   <!-- BEGIN PAGE TITLE-->
   <h3 class="page-title">Create New Application</h3>

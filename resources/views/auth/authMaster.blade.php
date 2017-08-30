@@ -46,29 +46,18 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END PAGE LEVEL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{cdn('assets/pages/img/login/favicon1.png')}}">
+    @yield('customcss')
     <!-- END HEAD -->
 
     <body class=" login">
-        <div class="login-register-formoverlay">
-          <div style="display:table-cell;vertical-align:middle">
-            <div class="site-about-us-form-div">
-              <h3 class="about-us-form-header" style="font-size:30px;font-weight:bold">About Us</h3>
-              <br />
-              <div class="site-about-us-form-container-div">
-                <div class="site-about-us-form-container"></div>
-              </div>
-              <a class="site-about-us-form-div-close-btn"><i class="fa fa-close"></i></a>
-            </div>
-          </div>
-        </div>
         <!-- BEGIN : LOGIN PAGE 5-1 -->
         <div class="user-login-5">
             <div class="row bs-reset" style="background-color: #000;">
                 <div class="col-md-6 login-container bs-reset loginpage-video-div" style="background-color: #fff;">
                     <div class="login-content" style="padding-bottom:20px;">
                       <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:50px;">
+                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:20px;">
                           <img style="width:140px;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
                         </div>
                       </div>
@@ -91,8 +80,8 @@ License: You must have a valid license purchased only from themeforest(the above
               <div class="col-md-6" >
               </div>
               <div class="col-md-6 footer-div-new-design-col">
-                <div class="login-footer" style="padding:20px 20px;">
-                  <div class="row bs-reset" style="padding-bottom:10px;">
+                <div class="login-footer" style="padding:10px 20px;">
+                  <div class="row bs-reset">
                       <div class="col-sm-12 bs-reset" style="text-align:center;">
                           <div class="login-copyright" style="display:inline-block;padding:0;text-align:center;">
                               <p><a href="{{url('terms-and-condition')}}" target="_blank">Terms & Conditions</a> | <a href="{{url('privacy-policy')}}" target="_blank"> Privacy policy</a> | <a>How it works</a> | <a href="{{url('about-us')}}" target="_blank">About Us</a> | <a>Contact Us</a></p>
@@ -102,7 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
                   <div class="row bs-reset">
                       <div class="col-sm-12 bs-reset" style="text-align:center;">
                           <div class="login-copyright text-right" style="display:inline-block;padding:0;">
-                              <p>Copyright &copy; Keenthemes 2015</p>
+                              <p>Copyright &copy; ShareAd Group - Coremobile Projects.</p>
                           </div>
                       </div>
                   </div>
@@ -136,25 +125,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <!-- END THEME LAYOUT SCRIPTS -->
-        <script>
-          var getservicedataUrl = "{{ url('getSiteHelp') }}";
-
-          $('.site-terms-service-btn').on('click', function(){
-            $.get(getservicedataUrl, function (data) {
-                 $('div.site-about-us-form-container').html(data[0]['terms_service']);
-            });
-            $('.about-us-form-header').html('Terms of Service');
-            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
-          });
-
-          $('.site-privacy-policy-btn').on('click', function(){
-            $.get(getservicedataUrl, function (data) {
-                 $('div.site-about-us-form-container').html(data[0]['privacy_policy']);
-            });
-            $('.about-us-form-header').html('Privacy Policy');
-            $('.login-register-formoverlay').css({visibility:'visible',opacity:'1'})
-          });
-        </script>
     </body>
 
 </html>

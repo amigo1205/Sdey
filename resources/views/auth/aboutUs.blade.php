@@ -1,6 +1,6 @@
 @extends('auth.sitehelpmaster')
 @section('title')
-login
+About Us
 @endsection
 @section('helptitle')
 About Us

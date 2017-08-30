@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+User Management
+@endsection
 @section('pagelevel_plugin')
 <link href="{{ cdn('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ cdn('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />

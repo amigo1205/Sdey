@@ -2,6 +2,23 @@
 @section('title')
 Login
 @endsection
+@section('customcss')
+<style>
+  .user-login-5 .login-container > .login-content {
+    padding-top: 200px;
+  }
+  @media(max-width:1399px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 230px;
+    }
+  }
+  @media(max-width: 992px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 100px;
+    }
+  }
+</style>
+@endsection
 @section('content')
   <h1>Login Page</h1>
   <form action="{{ url('login-page') }}" class="login-form" method="post">
@@ -49,7 +66,7 @@ Login
       <div class="row">
           <div class="col-sm-12 text-right">
             <div class="forgot-password" style="margin-right:0;padding-top:20px;">
-            <label style="font-size:12px;">Don't you have accoun? </label><a href="{{url('register-account')}}" style="font-size:13px;color:#085af5;"> Create New Account</a>
+            <label style="font-size:12px;">Don't you have account? </label><a href="{{url('register-account')}}" style="font-size:13px;color:#085af5;"> Create New Account</a>
             </div>
           </div>
       </div>

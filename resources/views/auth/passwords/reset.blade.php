@@ -2,8 +2,25 @@
 @section('title')
 reset password
 @endsection
+@section('customcss')
+<style>
+  .user-login-5 .login-container > .login-content {
+    padding-top: 180px;
+  }
+  @media(max-width:1399px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 180px;
+    }
+  }
+  @media(max-width: 992px){
+    .user-login-5 .login-container > .login-content {
+      padding-top: 100px;
+    }
+  }
+</style>
+@endsection
 @section('content')
-  <h1>Share App ResetPassword</h1>
+  <h1>Reset Password</h1>
   <form action="{{ route('password.request') }}" class="register-form" method="post">
       {{ csrf_field() }}
       <input type="hidden" name="token" value="{{ $token }}">

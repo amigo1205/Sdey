@@ -1,4 +1,7 @@
 @extends('master')
+@section('title')
+User Profile
+@endsection
 @section('pagelevel_plugin')
 <link href="{{ cdn('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ cdn('assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.cs') }}s" rel="stylesheet" type="text/css" />
