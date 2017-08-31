@@ -22,7 +22,7 @@
   .user-login-5 .login-container > .login-content,
   .user-login-5 .login-container .login-social,
   .user-login-5 .login-container .login-copyright {
-  padding: 0 30px; }
+  padding: 0 80px; }
   .user-login-5 .login-container > .login-content {
   padding-top: 13%; }
   .user-login-5 .login-container > .login-content > h1 {
@@ -164,5 +164,5 @@
   .user-login-5 .login-container > .login-content .text-right {
   text-align: left;}
   .user-login-5 .login-container > .login-content {
-      padding: 0 30px;
-      } }
+    padding: 0 30px;
+    } }

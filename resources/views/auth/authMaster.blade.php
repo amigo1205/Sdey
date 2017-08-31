@@ -57,8 +57,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="col-md-6 login-container bs-reset loginpage-video-div" style="background-color: #fff;">
                     <div class="login-content" style="padding-bottom:20px;">
                       <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:20px;">
-                          <img style="width:140px;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
+                        <div class="col-xs-6 col-xs-offset-3" style="text-align:center;margin-bottom:110px;">
+                          <img style="width:100px;" src="{{cdn('assets/pages/img/login/favicon.png')}}">
                         </div>
                       </div>
                         @yield('content')
@@ -66,7 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <div class="col-md-6 bs-reset">
                     <div class="login-bg">
-                      <div style="width:100%;height:90vh;">
+                      <div class="login-page-video-div">
                         <video id="background-video" preload="auto" loop="loop" autoplay="true" style="width:100%;" muted="muted">
                             <source src="{{cdn('assets/pages/video/shareappvideo.mp4')}}" type="video/mp4">
                         </video>

@@ -40,6 +40,23 @@
   <link href="{{cdn('css/custom.css')}}" rel="stylesheet" type="text/css" />
   <!-- END THEME LAYOUT STYLES -->
   <link rel="icon" type="image/png" sizes="32x32" href="{{cdn('assets/pages/img/login/favicon1.png')}}">
+  <style>
+    .page-footer{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @media(max-width: 499px) {
+      .page-footer .page-footer-inner a{
+        font-size: 10px;
+      }
+      .page-footer .page-footer-inner p{
+        font-size: 10px;
+      }
+      .page-footer{
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
   <!-- BEGIN HEADER -->

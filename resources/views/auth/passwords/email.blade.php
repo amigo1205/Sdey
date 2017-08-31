@@ -9,7 +9,7 @@ Forget password
   }
   @media(max-width:1399px){
     .user-login-5 .login-container > .login-content {
-      padding-top: 230px;
+      padding-top: 200px;
     }
   }
   @media(max-width: 992px){

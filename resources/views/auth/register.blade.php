@@ -9,7 +9,7 @@ Register
   }
   @media(max-width:1399px){
     .user-login-5 .login-container > .login-content {
-      padding-top: 180px;
+      padding-top: 150px;
     }
   }
   @media(max-width: 992px){

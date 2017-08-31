@@ -9,7 +9,7 @@ Login
   }
   @media(max-width:1399px){
     .user-login-5 .login-container > .login-content {
-      padding-top: 230px;
+      padding-top: 215px;
     }
   }
   @media(max-width: 992px){
@@ -20,7 +20,7 @@ Login
 </style>
 @endsection
 @section('content')
-  <h1>Login Page</h1>
+  <h1>Login</h1>
   <form action="{{ url('login-page') }}" class="login-form" method="post">
       {{ csrf_field() }}
       <div class="alert alert-danger display-hide">
