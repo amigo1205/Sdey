@@ -182,7 +182,7 @@ class RegisterController extends Controller
                 "exceptions" => true,
                 "decode_content" => true),
             'verify' => false,
-            'proxy' => '127.0.0.1:8888',
+            // 'proxy' => '127.0.0.1:8888',
         ];
 
         $param = [
