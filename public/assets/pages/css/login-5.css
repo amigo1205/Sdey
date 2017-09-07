@@ -160,9 +160,10 @@
   .user-login-5 .login-container {
   min-height: 50vh; }
 }
-  @media (max-width: 640px) {
+@media (max-width: 640px) {
   .user-login-5 .login-container > .login-content .text-right {
   text-align: left;}
   .user-login-5 .login-container > .login-content {
     padding: 0 30px;
-    } }
+  }
+}

@@ -20,7 +20,7 @@ Forget password
 </style>
 @endsection
 @section('content')
-  <h1>Share App Admin Forget Password</h1>
+  <h1>Share Apps Account Recovery</h1>
   <form class="forget-form" action="{{ url('password-email') }}" method="post">
       {{ csrf_field() }}
       <h3 class="font-green">Forgot Password ?</h3>

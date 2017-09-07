@@ -18,6 +18,7 @@ use Propaganistas\LaravelPhone\PhoneNumber;
 use libphonenumber\PhoneNumberFormat;
 use libphonenumber\PhoneNumberType;
 use SimpleSoftwareIO\SMS\Facades\SMS;
+use GuzzleHttp\Client as Guzzle;
 use Mail;
 
 class RegisterController extends Controller
@@ -35,7 +36,6 @@ class RegisterController extends Controller
 
     use RegistersUsers;
     use VerifiesUsers;
-
     /**
      * Where to redirect users after registration.
      *
@@ -55,10 +55,46 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-      $countrylists = Country::all();
-      return view('auth.register',['countries' => $countrylists]);
+        $countrylists = [];
+        $countries = Country::all();
+
+        foreach ($countries as $key => $country) {
+            try {
+                $dialNumber = Countries::where('cca2', $key)->first()->callingCode[0];
+                $countrylists[$key] = $country.' +'.$dialNumber;
+            }
+            catch (\Exception $ex) {
+                continue;
+            }
+        }
+        return view('auth.register',['countries' => $countrylists]);
     }
 
+
+    // Check for phone number validation
+    public function phoneValidation($phonenumber, $countrycode) {
+        $fullNumber = '';
+        $dialNumber = Countries::where('cca2', $countrycode)->first()->callingCode[0];
+        
+        $fullNumber = ltrim($phonenumber, '0');
+
+        if (strpos($fullNumber, $dialNumber) !== 0)
+            $fullNumber = $dialNumber.$phonenumber;
+
+        // if (strlen($phonenumber) < 11)
+        // {
+        //     // no need to check and merge 
+        //     $fullNumber = $dialNumber.ltrim($phonenumber, '0');
+        // }
+        // else {
+        //     if (strpos($phonenumber, $dialNumber) !== 0)
+        //         return false;
+            
+        //     $fullNumber = $phonenumber;
+        // }
+
+        return $fullNumber;
+    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -86,6 +122,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $country_name = Countries::where('cca2', $data['phoneCountry'])->first()->name->common;
+
         return User::create([
             'first_name' => $data['fname'],
             'last_name' => $data['lname'],
@@ -93,6 +131,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'phone_number' => $data['phonenumber'],
             'password' => bcrypt($data['password']),
+            'country_code' => $data['phoneCountry'],
+            'country_name' => $country_name,
+            'phone_code' => $data['phone_code'],
         ]);
     }
     /**
@@ -103,17 +144,68 @@ class RegisterController extends Controller
    */
     public function register(Request $request)
     {
-      $this->validator($request->all())->validate();
-        $data = $this->create($request->all());
+        $data = $request->all();
+
+        // Standard validation
+        $this->validator($data)->validate();
+
+        // Phone validation
+        if (($data['phonenumber'] = $this->phoneValidation($data['phonenumber'], $data['phoneCountry'])) == false) {
+            return redirect()->back()
+                        ->with('phone', 'Phone Validation Error!')
+                        ->withInput();
+        }
+
+        // Random phone verification number
+        $data['phone_code'] = rand(1000, 9999);
+        $data = $this->create($data);
 
         $user = User::find($data['id']);
 
+        // Phone Verification
+        $this->SendVerifyCode($data['phone_number'], $data['phone_code']);
+
+        // Email Verification
         UserVerification::generate($user);
 
         UserVerification::send($user, 'please verify your email');
 
         return $this->registered($request, $user)
                         ? : redirect(url('login-page'))->with('status','Confirmation email has been send. please check your email.');
+    }
+
+    public function SendVerifyCode($phone_number, $verify_code) {
+        $url = 'http://api.infobip.com/sms/1/text/single';
+
+        $header = [
+            'defaults' => array(
+                "exceptions" => true,
+                "decode_content" => true),
+            'verify' => false,
+            'proxy' => '127.0.0.1:8888',
+        ];
+
+        $param = [
+            // "{ \"from\":\"InfoSMS\", \"to\":\"41793026727\", \"text\":\"Test SMS.\" }";
+            'from' => 'ShareApps',
+            'to' => $phone_number,
+            'text' => 'Verify Code : '.$verify_code,
+        ];
+
+        $meta = [
+            'accept' => 'application/json',
+            'authorization' => 'Basic TXljb3JlbW9iaWxlOkhhcHB5MTIzNA==',
+            'content-type' => 'application/json',
+        ];
+
+        $client = new Guzzle($header);
+        $response = $client->request('POST', $url, ['json' => $param, 'headers' => $meta]);
+
+        // Check response ...
+        $response = $response->getBody()->getContents();
+
+        // Your code here ..
+
     }
 
     public function getVerification(Request $request, $token)
