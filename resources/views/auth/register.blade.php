@@ -29,7 +29,8 @@ Register
       </div>
         @if (session('status'))
             <div class="alert alert-danger">
-                {{ session('status') }}
+                <button class="close" data-close="alert"></button>
+                <span>{{ session('status') }}</span> 
             </div>
         @endif
       <div class="row">
@@ -49,8 +50,12 @@ Register
             </select>
           </div>
           <div class="col-sm-3">
+          @if (session('status'))
+              <input class="form-control form-control-solid placeholder-no-fix form-group has-error" type="number" autocomplete="off" placeholder="Phone Number" value="{{ old('phonenumber') }}" name="phonenumber" required/> </div>
+          @else
               <input class="form-control form-control-solid placeholder-no-fix form-group" type="number" autocomplete="off" placeholder="Phone Number" value="{{ old('phonenumber') }}" name="phonenumber" required/> </div>
-      </div>
+          @endif
+        </div>
       <div class="row">
           <div class="col-sm-6">
               <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Company name" value="{{ old('company_name') }}" name="company_name" required/> </div>
