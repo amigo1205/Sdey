@@ -74,25 +74,25 @@ class RegisterController extends Controller
     // Check for phone number validation
     public function phoneValidation($phonenumber, $countrycode) {
         $fullNumber = '';
+        $phonenumber = ltrim($phonenumber, '0');
         $dialNumber = Countries::where('cca2', $countrycode)->first()->callingCode[0];
         
-        $fullNumber = ltrim($phonenumber, '0');
+        if (strlen($phonenumber) < 11) {
+            return false;
+        }
+        else if (strlen($phonenumber) == 11) {
+            if (strpos($phonenumber, $dialNumber) === 0) 
+                return false;
 
-        if (strpos($fullNumber, $dialNumber) !== 0)
             $fullNumber = $dialNumber.$phonenumber;
+        }
+        else {
+            if (strpos($phonenumber, $dialNumber) !== 0) 
+                return false;
 
-        // if (strlen($phonenumber) < 11)
-        // {
-        //     // no need to check and merge 
-        //     $fullNumber = $dialNumber.ltrim($phonenumber, '0');
-        // }
-        // else {
-        //     if (strpos($phonenumber, $dialNumber) !== 0)
-        //         return false;
-            
-        //     $fullNumber = $phonenumber;
-        // }
-
+            $fullNumber = $phonenumber;
+        }
+        
         return $fullNumber;
     }
 
@@ -152,7 +152,7 @@ class RegisterController extends Controller
         // Phone validation
         if (($data['phonenumber'] = $this->phoneValidation($data['phonenumber'], $data['phoneCountry'])) == false) {
             return redirect()->back()
-                        ->with('phone', 'Phone Validation Error!')
+                        ->with('status', 'Phone Validation Error!')
                         ->withInput();
         }
 
@@ -186,7 +186,6 @@ class RegisterController extends Controller
         ];
 
         $param = [
-            // "{ \"from\":\"InfoSMS\", \"to\":\"41793026727\", \"text\":\"Test SMS.\" }";
             'from' => 'ShareApps',
             'to' => $phone_number,
             'text' => 'Verify Code : '.$verify_code,

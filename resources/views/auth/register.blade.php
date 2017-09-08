@@ -27,6 +27,11 @@ Register
           <button class="close" data-close="alert"></button>
           <span>Enter any username and password. </span>
       </div>
+        @if (session('status'))
+            <div class="alert alert-danger">
+                {{ session('status') }}
+            </div>
+        @endif
       <div class="row">
           <div class="col-sm-6">
             <input class="form-control form-control-solid placeholder-no-fix form-group" type="email" autocomplete="off" placeholder="Email" value="{{ old('email') }}" name="email" required/>
