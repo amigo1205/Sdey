@@ -84,13 +84,13 @@ class RegisterController extends Controller
             if (strpos($phonenumber, $dialNumber) === 0) 
                 return false;
 
-            $fullNumber = $dialNumber.$phonenumber;
+            $fullNumber = $phonenumber;
         }
         else {
             if (strpos($phonenumber, $dialNumber) !== 0) 
                 return false;
 
-            $fullNumber = $phonenumber;
+            $fullNumber = str_replace($dialNumber, '', $phonenumber);
         }
         
         return $fullNumber;
