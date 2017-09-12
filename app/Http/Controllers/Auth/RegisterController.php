@@ -163,7 +163,8 @@ class RegisterController extends Controller
         $user = User::find($data['id']);
 
         // Phone Verification
-        $this->SendVerifyCode($data['phone_number'], $data['phone_code']);
+        $dialNumber = Countries::where('cca2', $data['country_code'])->first()->callingCode[0];
+        $this->SendVerifyCode($dialNumber.$data['phone_number'], $data['phone_code']);
 
         // Email Verification
         UserVerification::generate($user);
